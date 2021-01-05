@@ -104,7 +104,7 @@ public class AutoTeachingComment {
                     .execute();
 
             System.out.print("课程id:"+evaluationLessonId+"\t教师id:"+teacherId);
-            System.out.print("\t请求状态："+doComment.getStatus()+"\t");
+            System.out.print("\t请求状态"+doComment.getStatus()+"\t");
             if(doComment.getStatus()!=302){
                 System.out.println("评教失败");
             }else{
