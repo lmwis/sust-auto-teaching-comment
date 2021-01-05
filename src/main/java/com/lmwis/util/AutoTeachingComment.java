@@ -81,9 +81,11 @@ public class AutoTeachingComment {
             // 登录失败
 //            throw new BusinessException(EmCourseExceptError.SUST_JWC_LOGIN_FAIL);
             System.out.println("登录失败");
+            return ;
         }else if(execute.getStatus()!=302){
             // 不为302未知错误
             System.out.println("登录失败:不为302");
+            return ;
         }
         System.out.println("sust教务系统登录成功，用户:"+username);
         String location = execute.header(Header.LOCATION);
