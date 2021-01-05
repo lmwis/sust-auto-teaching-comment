@@ -1,5 +1,8 @@
 # sust-auto-teaching-comment
 sust自动评教
+# 评教数据
+- 选择全为最高分
+- 最后三个文本内容为【无】
 # maven依赖
 ```xml
 <dependency>
