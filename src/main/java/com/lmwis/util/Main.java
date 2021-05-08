@@ -13,6 +13,6 @@ import java.text.SimpleDateFormat;
 public class Main {
     public static void main(String[] args) throws ParseException {
         AutoTeachingComment autoTeachingComment = new AutoTeachingComment();
-        autoTeachingComment.doComment("学号","密码");
+        autoTeachingComment.doComment("201806020527","conanyuan1.");
     }
 }
