@@ -80,7 +80,7 @@ public class AutoTeachingComment {
         if(execute.getStatus()== 401){
             // 登录失败
 //            throw new BusinessException(EmCourseExceptError.SUST_JWC_LOGIN_FAIL);
-            System.out.println("登录失败");
+            System.out.println("登录失败，账号或密码错误");
             return ;
         }else if(execute.getStatus()!=302){
             // 不为302未知错误
@@ -97,7 +97,13 @@ public class AutoTeachingComment {
         // 4.获取评教页面列表
         String commentListPage = HttpRequest.post(COMMENT_LIST_URL).execute().body();
 //        System.out.println(commentListPage);
-        for(String str : execRegxGroups(commentListPage,evaluationLessonRegex)){
+        List<String> strings = execRegxGroups(commentListPage, evaluationLessonRegex);
+        if (strings.size()==0){
+            System.out.println("不存在需要评教的课程");
+        }else{
+            System.out.println("未完成课程评教数量："+strings.size());
+        }
+        for(String str : strings){
             String evaluationLessonId = str.substring(0,str.indexOf("&"));
             String teacherId = str.substring(str.indexOf("=")+1);
             // 发送请求进行评教
@@ -114,6 +120,7 @@ public class AutoTeachingComment {
             }
 
         }
+        System.out.println("评教结束");
 
 
     }

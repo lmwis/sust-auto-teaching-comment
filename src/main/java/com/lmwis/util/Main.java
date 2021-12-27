@@ -3,6 +3,7 @@ package com.lmwis.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Scanner;
 
 /**
  * @Description:
@@ -12,7 +13,12 @@ import java.text.SimpleDateFormat;
  */
 public class Main {
     public static void main(String[] args) throws ParseException {
+        Scanner input = new Scanner(System.in);
+        System.out.println("输入sust教务处登陆账号(一般是学号):");
+        String username = input.next();
+        System.out.println("输入密码：");
+        String password = input.next();
         AutoTeachingComment autoTeachingComment = new AutoTeachingComment();
-        autoTeachingComment.doComment("username","password");
+        autoTeachingComment.doComment(username,password);
     }
 }

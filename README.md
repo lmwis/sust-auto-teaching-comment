@@ -12,4 +12,4 @@ sust自动评教
 </dependency>
 ```
 # how to use
-向AutoTeachingComment的doComment方法提供学号和密码即可
+运行Main方法，控制台中输入教务处账号和密码
