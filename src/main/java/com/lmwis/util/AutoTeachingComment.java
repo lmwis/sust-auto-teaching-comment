@@ -64,14 +64,16 @@ public class AutoTeachingComment {
         this.username = username;
         this.password = password;
 
-        // 1.第一次请求登录页，从页面隐藏中解析出execution值
-        String result1= HttpUtil.get(LOGIN_CAS_URL);
+        // 1.第一次请求登录页，从页面隐藏中解析出execution值-->值恒为"e1s1"
+        HttpUtil.get(LOGIN_CAS_URL);
         // 正则匹配
-        Pattern pattern = Pattern.compile(executionRegex, Pattern.DOTALL);
-        Matcher matcher = pattern.matcher(result1);
-        if (matcher.find()) {
-            execution= matcher.group();
-        }
+//         Pattern pattern = Pattern.compile(executionRegex, Pattern.DOTALL);
+//         Matcher matcher = pattern.matcher(result1);
+//         if (matcher.find()) {
+//             execution= matcher.group();
+//         }
+        execution="e1s1";
+        /*可以不用去解离信息，在get完成之后execution即有效*/
         // 参数封装，发送请求
         Map<String, Object> params = packageLoginParams();
         // 2.第二次请求登录页，执行登录，获取Location请求头和TGC
